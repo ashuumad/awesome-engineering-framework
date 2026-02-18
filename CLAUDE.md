@@ -4,10 +4,11 @@ This file provides guidance for AI assistants working with the **Awesome Enginee
 
 ## Repository Overview
 
-**Awesome Engineering Framework** is a starter/skeleton project intended to serve as a foundation for building robust engineering solutions. As of the current state, the repository is in early development and contains:
+**Awesome Engineering Framework** is a starter/skeleton project intended to serve as a foundation for building robust engineering solutions. The repository is in early development and currently contains:
 
-- A `README.md` with project description and placeholder setup instructions
+- A `README.md` with project description, feature highlights, and placeholder setup instructions
 - A GitHub Actions CI workflow (`.github/workflows/blank.yml`) triggered on pushes and pull requests to `main`
+- This `CLAUDE.md` guidance file
 
 There is no application source code yet. Contributors (human or AI) are expected to build out the framework incrementally.
 
@@ -25,9 +26,9 @@ awesome-engineering-framework/
 ## Branch Conventions
 
 - **`main`**: The primary protected branch. All changes must go through pull requests.
-- **`master`**: Legacy branch; `main` is the active default branch used by CI.
+- **`master`**: Legacy local branch; not present on the remote. `main` is the active default branch used by CI.
 - **Feature branches**: Use descriptive names, e.g., `feature/<description>` or `fix/<description>`.
-- **AI-generated branches**: Must start with `claude/` and end with the session ID, e.g., `claude/add-claude-documentation-zMKtD`.
+- **AI-generated branches**: Must start with `claude/` and end with the session ID, e.g., `claude/add-claude-documentation-NN081`.
 
 ## Development Workflow
 
@@ -36,6 +37,8 @@ awesome-engineering-framework/
 3. **Push the branch** to origin: `git push -u origin <branch-name>`.
 4. **Open a pull request** targeting `main`.
 5. **CI runs automatically** via GitHub Actions on every push and PR to `main`.
+
+All merges to `main` have been done via pull requests (PRs #1 through #7 in the existing history). Direct pushes to `main` are not permitted.
 
 ### Git Conventions
 
@@ -50,7 +53,11 @@ The CI pipeline is defined in `.github/workflows/blank.yml`:
 
 - **Trigger**: Push or pull request to `main`; also manually via `workflow_dispatch`.
 - **Runner**: `ubuntu-latest`
-- **Current steps**: Placeholder echo commands (no real build, test, or lint steps yet).
+- **Steps**:
+  1. `actions/checkout@v4` — checks out the repository
+  2. Echo a single-line message (placeholder)
+  3. Echo a multi-line message (placeholder)
+- **Current state**: Placeholder echo commands only — no real build, test, or lint steps yet.
 
 When the project gains source code, the workflow should be updated to include:
 - Dependency installation
@@ -101,3 +108,7 @@ The following are not yet defined and should be documented here once established
 - Lint/format command
 - Environment variables and configuration
 - Deployment process
+
+---
+
+_Last updated: 2026-02-18_
